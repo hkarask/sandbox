@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Marked in the browser</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="prism.css" rel="stylesheet" />
+    <link rel="stylesheet" href="codemirror-5.59.2/lib/codemirror.css" />
+    <link rel="stylesheet" href="codemirror-5.59.2/theme/base16-light.css" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="line-numbers match-braces">
+    <h1>
+      Basic demo with markdown editor (CodeMirror) and preview (Showdown +
+      Prism)
+    </h1>
+    <h2>- Live Markdown editor</h2>
+    <textarea id="src">Loading...</textarea>
+    <h2>- Html preview with syntax highlighting</h2>
+    <div id="preview"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js"></script>
+    <script src="prism.js"></script>
+    <script src="codemirror-5.59.2/lib/codemirror.js"></script>
+    <script src="codemirror-5.59.2/mode/markdown/markdown.js"></script>
+    <script>
+      const converter = new showdown.Converter();
+
+      const textAreaElem = document.getElementById("src");
+      const previewElem = document.getElementById("preview");
+
+      const setSampleContent = async () => {
+        try {
+          const res = await fetch("./sample.md");
+          const payload = await res.text();
+          textAreaElem.value = payload;
+          initEditor();
+          setPreviewContent(payload);
+        } catch (error) {
+          alert(error);
+        }
+      };
+
+      setSampleContent();
+
+      const setPreviewContent = (md) => {
+        const html = converter.makeHtml(md);
+        previewElem.innerHTML = html;
+        Prism.highlightAll();
+      };
+
+      const initEditor = () => {
+        const editor = CodeMirror.fromTextArea(textAreaElem, {
+          theme: "base16-light",
+        });
+        editor.on("change", () => {
+          const html = converter.makeHtml(editor.getValue());
+          previewElem.innerHTML = html;
+          Prism.highlightAll();
+        });
+      };
+    </script>
+  </body>
+</html>

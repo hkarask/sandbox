@@ -1,0 +1,29 @@
+body {
+  font-size: 1rem;
+  color: #333;
+  font-family: Lora, "Times New Roman", serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 800;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+#preview code {
+  font-size: 0.75rem;
+}
+#src {
+  width: 90%;
+  height: 300px;
+}
+.CodeMirror {
+  border: 1px solid #dcdcdc;
+}
+#preview {
+  margin-top: 1rem;
+  padding: 2rem;
+  border: 1px dashed black;
+}
