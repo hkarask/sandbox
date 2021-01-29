@@ -1,8 +1,8 @@
 # A very bold heading
 
-Hello
+Hello world!
 
-## Slightly lesser bold heading
+## Not so bold heading
 
 ![Random Picture](https://s3-ap-southeast-2.amazonaws.com/karask.com/blog/postgres+docker+compose+seed+data.jpg)
 
