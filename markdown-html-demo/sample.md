@@ -4,7 +4,7 @@ Hello world!
 
 ## Not so bold heading
 
-![Random Picture](https://s3-ap-southeast-2.amazonaws.com/karask.com/blog/postgres+docker+compose+seed+data.jpg)
+![Random Picture](https://github.githubassets.com/images/modules/open_graph/github-mark.png =10%x*)
 
 This should be a paragraph.
 
