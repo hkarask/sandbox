@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <title>Sample ReDoc Api</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:300,400,700" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    
+    <style>
+        #header {
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
+            height: 4rem;
+            width: 100%;
+            display: flex;
+            background-color: #312c51;
+        }
+        #logo {
+            display: flex;
+            align-items: center;
+            padding-left: 1rem;
+        }
+        #logo img { height: 60%; margin-right: .5rem }
+    </style>
+</head>
+<body>
+<div id="header">
+    <div id="logo">
+        <img src="https://s3-ap-southeast-2.amazonaws.com/karask.com/blog/logo_white_200x200.svg" alt="Logo">
+        Company
+    </div>
+</div>
+<div id="redoc-container"></div>
+<script src="https://cdn.jsdelivr.net/npm/redoc/bundles/redoc.standalone.js"></script>
+<script>
+    // Options: https://github.com/Redocly/redoc#redoc-options-object
+    const theme = {
+        rightPanel: {
+            backgroundColor: '#48426d'
+        },
+        spacing: {
+            // unit: 3
+            sectionVertical: 20
+        }
+    };
+    Redoc.init('swagger/v1/swagger.json', { theme }, document.getElementById('redoc-container'));
+</script>
+
+
+</body>
+</html>
